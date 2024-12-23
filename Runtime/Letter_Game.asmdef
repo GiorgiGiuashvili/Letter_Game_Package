@@ -6,9 +6,8 @@
         "Unity.Addressables",
         "spine-csharp",
         "spine-unity",
-        "Unity.TextMeshPro",
         "Unity.VisualScripting.Core",
-        ""
+        "Unity.TextMeshPro"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

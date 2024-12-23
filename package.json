@@ -2,7 +2,7 @@
   "name": "com.appidea.minigames.letter_game",
   "version": "0.1.1",
   "displayName": "letter_game",
-  "description": "letter_game",
+  "description": "to drag letters",
   "dependencies": {
     "com.unity.addressables": "1.21.21",
     "com.unity.render-pipelines.universal": "14.0.10"
