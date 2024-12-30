@@ -1,11 +1,8 @@
 ﻿using Spine.Unity;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
-using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
 [System.Serializable]
@@ -61,11 +58,11 @@ public class LetterSpawner : MonoBehaviour
 
     private int currentLevelIndex = 0;
     private int placedObjectCount = 0;
-    private int MaxWrongMove = 5;
-    [DoNotSerialize]public int WrongCount = 0;
+/*    private int MaxWrongMove = 5; // tutoriali gatishulia troebit 
+*/    [HideInInspector]public int WrongCount = 0;
 
-    public GameObject TutorialManager;
-
+/*    public GameObject TutorialManager;
+*/
     private List<GameObject> animals = new List<GameObject>();
     private List<GameObject> letters = new List<GameObject>();
     private List<GameObject> slots = new List<GameObject>();
@@ -228,12 +225,11 @@ public class LetterSpawner : MonoBehaviour
 
         if (placedObjectCount >= CurrentLevel.Letters.Count)
         {
-            SetFinishForPackage();
-/*            StartCoroutine(FinishLevel());
-*/      }
+            StartCoroutine(FinishLevel());
+        }
     }
 
-    public IEnumerator Tutorial()
+   /* public IEnumerator Tutorial()
     {
         if (WrongCount == MaxWrongMove)
         {
@@ -242,7 +238,7 @@ public class LetterSpawner : MonoBehaviour
             TutorialManager.SetActive(false);
             WrongCount = 0;
         }
-    }
+    }*/
     IEnumerator FinishLevel()
     {
         placedObjectCount = 0;
@@ -256,8 +252,9 @@ public class LetterSpawner : MonoBehaviour
         }
         else
         {
-            FinishPanel.SetActive(true);
-            InstantiateParticles();
+            SetFinishForPackage();
+/*            FinishPanel.SetActive(true);
+            InstantiateParticles();*/
         }
     }
 
@@ -296,7 +293,7 @@ public class LetterSpawner : MonoBehaviour
 
     private IEnumerator FinishAfterFirework()
     {
-        yield return new WaitForSecondsRealtime(5f);
+        yield return new WaitForSecondsRealtime(3f);
         _entryPoint.InvokeGameFinished();
     }
 }

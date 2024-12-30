@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: MiniGameConfig
   m_EditorClassIdentifier: 
   MiniGameName: Letter_Game
-  Version: 0.1.1
+  Version: 0.1.2
   Url: https://pub-38ec603bd73447bd84f8c70d35b54a2a.r2.dev
   CustomRenderPipelineAsset: {fileID: 11400000, guid: ab022e2225e05d44ea63b2537e7f2e99, type: 2}

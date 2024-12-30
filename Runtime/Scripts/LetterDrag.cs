@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEngine.ParticleSystem;
 
 public class LetterDrag : MonoBehaviour
 {
@@ -118,7 +117,7 @@ public class LetterDrag : MonoBehaviour
     private void StartDragging(Vector3 position)
     {
         if (isSnapping) return;
-        _SpriteRenderer.sortingOrder = 5;
+        _SpriteRenderer.sortingOrder = 6;
         originalPosition = transform.position;
         offset = transform.position - position;
         isDragging = true;
@@ -133,7 +132,7 @@ public class LetterDrag : MonoBehaviour
     }
     private Slot GetTargetSlot(Transform closestTarget)
     {
-        foreach (Slot slot in FindObjectsOfType<Slot>())
+        foreach (Slot slot in Slot.AllSlots)
         {
             if (Vector3.Distance(slot.transform.position, closestTarget.position) < 0.1f)
             {
@@ -161,7 +160,6 @@ public class LetterDrag : MonoBehaviour
         {
             StartCoroutine(SmoothSnapToTargetPosition(originalPosition, null));
             _Spawner.WrongCount++;
-            StartCoroutine(_Spawner.Tutorial());
         }
     }
 
